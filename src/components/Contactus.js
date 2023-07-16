@@ -7,17 +7,29 @@ const Contactus = () => {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
 
-  const handleFormSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await axios.post("https://your-email-api-endpoint", {
+      console.log('Submitting registration:', name, email, message);
+
+      const response = await axios.post('http://localhost:3001/Contactus', {
         name,
         email,
         message,
       });
+
+      console.log('Registered submitted successfully:', response);
+
       setSent(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+
+      // Add code to handle success or navigate to a different page if needed
     } catch (error) {
-      console.log(error);
+      console.error('Failed to register:', error);
+      // Handle error
     }
   };
 
@@ -33,52 +45,31 @@ const Contactus = () => {
     setMessage(e.target.value);
   };
 
-  const formContainerStyle = {
-    maxWidth: "500px",
-    margin: "0 auto",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    padding: "0.5rem",
-    marginBottom: "1rem",
-    fontSize: "1rem",
-    border: "1px solid #ccc",
-    borderRadius: "0.5rem",
-  };
-
-  const buttonStyle = {
-    padding: "0.75rem",
-    fontSize: "1rem",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    backgroundColor: "#000",
-    color: "#fff",
-    border: "none",
-    borderRadius: "0.5rem",
-    cursor: "pointer",
-  };
-
-  const locationStyle = {
-    marginTop: "2rem",
-   
-    textAlign: "center",
-    color: "#555",
-  };
-
   return (
-    <div style={formContainerStyle}>
+    <div
+      style={{
+        maxWidth: "500px",
+        margin: "0 auto",
+      }}
+    >
       <h2>Contact Us</h2>
       {sent ? (
         <p>Thank you for contacting us! We will get back to you soon.</p>
       ) : (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Your Name"
             value={name}
             onChange={handleNameChange}
-            style={inputStyle}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              border: "1px solid #ccc",
+              borderRadius: "0.5rem",
+            }}
             required
           />
           <input
@@ -86,23 +77,56 @@ const Contactus = () => {
             placeholder="Your Email"
             value={email}
             onChange={handleEmailChange}
-            style={inputStyle}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              border: "1px solid #ccc",
+              borderRadius: "0.5rem",
+            }}
             required
           />
           <textarea
             placeholder="Your Message"
             value={message}
             onChange={handleMessageChange}
-            style={inputStyle}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              border: "1px solid #ccc",
+              borderRadius: "0.5rem",
+            }}
             rows="5"
             required
           />
-          <button type="submit" style={buttonStyle}>
+          <button
+            type="submit"
+            style={{
+              padding: "0.75rem",
+              fontSize: "1rem",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              backgroundColor: "#000",
+              color: "#fff",
+              border: "none",
+              borderRadius: "0.5rem",
+              cursor: "pointer",
+            }}
+          >
             Submit
           </button>
         </form>
       )}
-      <div style={locationStyle}>
+      <div
+        style={{
+          marginTop: "2rem",
+          textAlign: "center",
+          color: "#555",
+        }}
+      >
         <h3>Store Location and Timings</h3>
         <p>123 Street, City, Country</p>
         <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
