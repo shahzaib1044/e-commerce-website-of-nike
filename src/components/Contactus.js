@@ -69,6 +69,9 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
+              '@media (max-width: 480px)': {
+                width: "80%",
+              }
             }}
             required
           />
@@ -84,6 +87,9 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
+              '@media (max-width: 480px)': {
+                width: "80%",
+              }
             }}
             required
           />
@@ -98,6 +104,9 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
+              '@media (max-width: 480px)': {
+                width: "80%",
+              }
             }}
             rows="5"
             required
