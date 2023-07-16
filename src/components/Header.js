@@ -10,36 +10,34 @@ const Header = () => {
   const headerStyle = {
     backgroundColor: '#111',
     color: '#fff',
-    padding: '20px',
+    padding: '1vh',
   };
 
   const searchContainer = {
     display: 'flex',
     alignItems: 'center',
-    marginTop: '1px',
-    marginBottom: '1px',
     backgroundColor: 'rgba(59,70,88,255)',
-    padding: '4px',
-    borderRadius: '4px',
+    padding: '1vh',
+    borderRadius: '0.5vh',
   };
 
   const linkStyle = {
     color: '#fff',
     textDecoration: 'none',
     fontWeight: 'bold',
-    fontSize: '20px',
-    marginLeft: '50px',
-    marginRight: '20px',
+    fontSize: '2.5vh', // Converted from '20px'
+    marginLeft: '3.33vh', // Converted from '50px'
+    marginRight: '1.33vh', // Converted from '20px'
   };
 
   const linkStyle1 = {
     color: '#fff',
     textDecoration: 'none',
     fontWeight: 'bold',
-    fontSize: '20px',
-    marginLeft: '50px',
+    fontSize: '1.5vh', // Converted from '20px'
+    marginLeft: '3.33vh', // Converted from '50px'
     position: 'relative',
-    top: '44px',
+    top: '6.67vh', // Converted from '44px'
   };
 
   const inputContainerStyle = {
@@ -51,27 +49,27 @@ const Header = () => {
     listStyle: 'none',
     display: 'flex',
     alignItems: 'center',
-    marginLeft: '1400px',
-    marginBottom: '30px',
+    marginLeft: '153.33vh', // Converted from '1400px'
+    marginBottom: '3vh', // Converted from '30px'
     position: 'relative',
-    top: '-45px',
+    top: '-4.5vh', // Converted from '-45px'
   };
 
   const ulStyle3 = {
     listStyle: 'none',
     display: 'flex',
     alignItems: 'center',
-    marginLeft: '220px',
+    marginLeft: '14.67vh', // Converted from '220px'
     position: 'relative',
-    top: '-20px',
+    top: '-0.67vh', // Converted from '-20px'
   };
 
   const searchIconStyle = {
-    marginRight: '10px',
+    marginRight: '1.33vh', // Converted from '10px'
   };
 
   const iconButtonStyle = {
-    marginLeft: '10px',
+    marginLeft: '1.33vh', // Converted from '10px'
   };
 
   const logo = require("./downloa.png");
@@ -80,14 +78,14 @@ const Header = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '40px',
-    height: '40px',
-    borderRadius: '50%',
+    width: '2.67vh', // Converted from '40px'
+    height: '2.67vh', // Converted from '40px'
+    borderRadius: '3.33vh', // Converted from '50%'
     backgroundColor: '#fff',
     color: '#000',
     fontWeight: 'bold',
-    fontSize: '18px',
-  };
+    fontSize: '1.2vh', // Converted from '18px'
+  }
 
   return (
     <header style={headerStyle}>
