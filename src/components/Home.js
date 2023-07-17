@@ -58,6 +58,7 @@ const Home = () => {
     border: "none",
     borderRadius: "10px",
     cursor: "pointer",
+    textDecoration: "none",
   };
 
   const handleForwardClick = () => {
@@ -93,7 +94,7 @@ const Home = () => {
           >
             &#8250;
           </div>
-          <button style={buyNowButtonStyle}>Buy Now</button>
+          <button style={buyNowButtonStyle}> <a href="/Products">Buy Now</a></button>
         </>
       )}
     </div>

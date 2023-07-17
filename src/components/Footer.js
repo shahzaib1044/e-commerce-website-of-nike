@@ -25,6 +25,7 @@ const Footer = () => {
         <a href="/Aboutus">About</a>
         <a href="/contactus">Contact</a>
       </div>
+      <p style={paragraphStyle}>&copy; {new Date().getFullYear()} Nike. All rights reserved.</p>
       <div className="social-icons">
         <Icon className="icon">
           <FaFacebook />
@@ -36,7 +37,7 @@ const Footer = () => {
           <FaYoutube />
         </Icon>
       </div>
-      <p style={paragraphStyle}>&copy; {new Date().getFullYear()} Nike. All rights reserved.</p>
+      
     </footer>
   );
 };

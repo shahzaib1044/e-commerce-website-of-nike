@@ -69,7 +69,6 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
-              
             }}
             required
           />
@@ -85,7 +84,6 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
-             
             }}
             required
           />
@@ -100,7 +98,6 @@ const Contactus = () => {
               fontSize: "1rem",
               border: "1px solid #ccc",
               borderRadius: "0.5rem",
-              
             }}
             rows="5"
             required

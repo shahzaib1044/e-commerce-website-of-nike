@@ -7,6 +7,10 @@ const Signup = () => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async () => {
+    if (!name || !address || !email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
     try {
       console.log('Submitting registration:', name, email, password, address);
 
