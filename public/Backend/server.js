@@ -9,7 +9,8 @@ const multer = require('multer');
 
 app.use(cors(
   {
-    origin:['https://e-commerce-website-of-nike.vercel.app"],
+   origin: ['https://e-commerce-website-of-nike.vercel.app'],
+
             methods:["POST","GET"],
             credentials:true
             }
