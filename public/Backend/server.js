@@ -6,7 +6,6 @@ require("dotenv").config();
 const cors = require('cors');
 const multer = require('multer');
 
-
 app.use(cors(
   {
    origin: ['https://e-commerce-website-of-nike.vercel.app'],
@@ -32,6 +31,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Routes
 app.get("/",(req,res) =>{
   res.json("Hello");
 })
@@ -70,10 +70,6 @@ app.post('/Signin', async (req, res) => {
     const signup = await Signup.findOne({ email, password });
 
     if (signup) {
-      res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
-      res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
-      res.setHeader('Access-Control-Allow-Credentials', 'true');
-
       // Signin successful
       res.sendStatus(200);
     } else {
@@ -155,43 +151,8 @@ app.post('/PaymentSummaryPage', async (req, res) => {
   }
 });
 
-
-
-
-
-   
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-    
-// const bcrypt = require('bcrypt');
-
-
-// app.post('/Signin', async (req, res) => {
-//     const { email, password } = req.body;
-  
-//     try {
-//       // Check if the email exists in the database
-//       const user = await Signup.findOne({ email });
-  
-//       if (!user) {
-//         return res.status(401).json({ message: 'Invalid credentials' });
-//       }
-  
-//       // Compare the entered password with the stored password hash
-//       const isPasswordMatch = password === user.password;
-  
-//       if (!isPasswordMatch) {
-//         return res.status(401).json({ message: 'Invalid credentials' });
-//       }
-  
-//       // Successful login
-//       return res.status(200).json({ message: 'Login successful' });
-//     } catch (error) {
-//       console.error(error);
-//       return res.status(500).json({ message: 'Server error' });
-//     }
-//   });
-  
-  
