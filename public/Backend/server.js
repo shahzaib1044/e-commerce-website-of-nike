@@ -10,6 +10,19 @@ app.use(cors({
   methods: ['POST'],
   credentials: true,
 }));
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
+
+
+// ... Rest of your code ...
+
+app.use(
+  "/api",
+  createProxyMiddleware({
+    target: "https://e-commerce-website-of-nike-api.vercel.app",
+    changeOrigin: true,
+  })
+);
 
 
 // Database connection
