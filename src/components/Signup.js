@@ -14,7 +14,7 @@ const Signup = () => {
     try {
       console.log('Submitting registration:', name, email, password, address);
 
-      const response = await fetch('http://localhost:3001/Signup', {
+      const response = await fetch('https://e-commerce-website-of-nike-api.vercel.app//Signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
