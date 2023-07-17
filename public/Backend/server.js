@@ -70,6 +70,10 @@ app.post('/Signin', async (req, res) => {
     const signup = await Signup.findOne({ email, password });
 
     if (signup) {
+      res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
+      res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+
       // Signin successful
       res.sendStatus(200);
     } else {
