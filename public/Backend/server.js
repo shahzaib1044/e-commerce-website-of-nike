@@ -7,7 +7,13 @@ const cors = require('cors');
 const multer = require('multer');
 
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:['https://e-commerce-website-of-nike.vercel.app"],
+            methods:["POST","GET"],
+            credentials:true
+            }
+));
 // Database connection
 const uri = 'mongodb+srv://shahzebraheel61:shahzaib1044@cluster0.luve38r.mongodb.net/?retryWrites=true&w=majority&ssl=true';
 // Connect to MongoDB using the URI
