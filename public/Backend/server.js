@@ -5,7 +5,12 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://e-commerce-website-of-nike.vercel.app',
+  methods: ['POST'],
+  credentials: true,
+}));
+
 
 // Database connection
 const uri = 'mongodb+srv://shahzebraheel61:shahzaib1044@cluster0.luve38r.mongodb.net/?retryWrites=true&w=majority&ssl=true';
