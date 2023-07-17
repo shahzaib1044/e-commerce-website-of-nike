@@ -4,66 +4,53 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const cors = require('cors');
-const multer = require('multer');
 
-app.use(cors(
-  {
-   origin: ['https://e-commerce-website-of-nike.vercel.app'],
+app.use(cors());
 
-            methods:["POST","GET"],
-            credentials:true
-            }
-));
 // Database connection
 const uri = 'mongodb+srv://shahzebraheel61:shahzaib1044@cluster0.luve38r.mongodb.net/?retryWrites=true&w=majority&ssl=true';
-// Connect to MongoDB using the URI
+
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
-    // Continue with your application logic
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
-    // Handle the error or terminate the application
   }); 
 
-// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
-app.get("/",(req,res) =>{
+app.get("/", (req, res) => {
   res.json("Hello");
-})
+});
 
 const SignupSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-   password: String,
-   address:String,
-   
-  });
-  const Signup = mongoose.model('Signup', SignupSchema);
+  name: String,
+  email: String,
+  password: String,
+  address: String,
+});
+
+const Signup = mongoose.model('Signup', SignupSchema);
+
 app.post('/Signup', async (req, res) => {
   try {
-  let newSignup = new Signup({
-    name: req.body.name,
-    email: req.body.email,
-   
-    
-    
-    password: req.body.password,
-    address:req.body.address
+    let newSignup = new Signup({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      address: req.body.address
+    });
 
-  });
-  newSignup = await newSignup.save();
-  res.send(newSignup);
-    } catch (error) {
+    newSignup = await newSignup.save();
+    res.send(newSignup);
+  } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Server error' });
   }
-
 });
+
 app.post('/Signin', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -71,6 +58,7 @@ app.post('/Signin', async (req, res) => {
 
     if (signup) {
       // Signin successful
+      res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
       res.sendStatus(200);
     } else {
       // Signin failed
@@ -81,7 +69,7 @@ app.post('/Signin', async (req, res) => {
     return res.status(500).json({ message: 'Server error' });
   }
 });
-// Contactus Model
+
 const ContactusSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -90,7 +78,6 @@ const ContactusSchema = new mongoose.Schema({
 
 const Contactus = mongoose.model("Contactus", ContactusSchema);
 
-// Routes
 app.post("/contactus", async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -108,8 +95,6 @@ app.post("/contactus", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-// Create a schema for payment summary
-
 
 const CartItemSchema = new mongoose.Schema({
   image: String,
@@ -154,5 +139,5 @@ app.post('/PaymentSummaryPage', async (req, res) => {
 const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
