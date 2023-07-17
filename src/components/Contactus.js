@@ -13,7 +13,8 @@ const Contactus = () => {
     try {
       console.log('Submitting registration:', name, email, message);
 
-     const response = await axios.post('https://e-commerce-website-of-nike-api.vercel.app//Contactus', {
+   const response = await axios.post('https://e-commerce-website-of-nike-api.vercel.app/Contactus', {
+
 
         name,
         email,
