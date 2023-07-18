@@ -10,16 +10,20 @@ app.use(cors({
   methods: ['POST'],
   credentials: true,
 }));
-const { createProxyMiddleware } = require("http-proxy-middleware");
+
 
 
 
 // ... Rest of your code ...
 
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+// ...
+
 app.use(
-  "/api",
+  '/Contactus',
   createProxyMiddleware({
-    target: "https://e-commerce-website-of-nike-api.vercel.app",
+    target: 'https://e-commerce-website-of-nike-api.vercel.app',
     changeOrigin: true,
   })
 );
