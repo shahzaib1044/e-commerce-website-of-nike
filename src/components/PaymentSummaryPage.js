@@ -34,7 +34,7 @@ const PaymentSummaryPage = ({ cartItems }) => {
       try {
         console.log('Submitting registration:', name, country, city);
   
-        const response = await axios.post('https://e-commerce-website-of-nike-api.vercel.app/PaymentSummaryPage', {
+        const response = await axios.post('http://localhost:3001/PaymentSummaryPage', {
           name,
           country,
           city,
