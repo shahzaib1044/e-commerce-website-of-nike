@@ -62,6 +62,7 @@ app.post('/Signup', async (req, res) => {
     });
 
     newSignup = await newSignup.save();
+     res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
     res.send(newSignup);
   } catch (error) {
     console.error(error);
@@ -107,6 +108,7 @@ app.post("/contactus", async (req, res) => {
     });
 
     const savedContactus = await newContactus.save();
+     res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
     res.status(200).json(savedContactus);
   } catch (error) {
     console.error("Failed to save contact message:", error);
@@ -147,6 +149,7 @@ app.post('/PaymentSummaryPage', async (req, res) => {
     });
 
     const savedPaymentSummaryPage = await newPaymentSummaryPage.save();
+     res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-website-of-nike.vercel.app');
     res.status(200).json(savedPaymentSummaryPage);
   } catch (error) {
     console.error('Failed to save payment summary:', error);
