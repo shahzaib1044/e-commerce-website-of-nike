@@ -12,7 +12,7 @@ const Signin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/Signin', {
+      const response = await fetch('https://e-commerce-website-of-nike-api.vercel.app/Signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
